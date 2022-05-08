@@ -2,23 +2,20 @@ import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
 import { TypedText } from "./TypedText";
 
-const AboutUs: React.FC = () => {
-  const [currentText, setCurrentText] = useState(0);
-  const [step, setStep] = useState(1);
+interface AboutUsProps {
+  nextStep: () => void;
+}
 
-  const times1 = useMemo(() => [4000, 5000, 18000], []);
-
+const AboutUs: React.FC<AboutUsProps> = ({ nextStep }) => {
   useEffect(() => {
     setTimeout(() => {
-      setCurrentText(currentText + 1);
-      console.log(times1[currentText]);
-      if (currentText === 2) setStep(step + 1);
-    }, times1[currentText] | 1000);
-  }, [currentText, times1, step]);
+      nextStep();
+    }, 3000);
+  }, [nextStep]);
 
   return (
-    <div className="w-full max-w-7xl flex flex-col justify-center p-6 gap-2">
-      <span className="px-3 font-bold text-zinc-200 font-gemunu text-xl flex items-center gap-3">
+    <div className="w-full max-w-7xl flex flex-col justify-start p-2 md:p-6 gap-2">
+      <span className="h-[20vh] md:h-[30vh] w-full px-3 font-bold text-zinc-200 font-gemunu text-xl flex items-center gap-3">
         <div className="w-14 h-14">
           <Image
             src="/eu.jpeg"
@@ -29,20 +26,23 @@ const AboutUs: React.FC = () => {
             className="rounded-full  shadow-md"
           />
         </div>
-        Junior
+        <div>
+          Junior
+          <p className="text-md opacity-80 animate-pulse">Está digitando...</p>
+        </div>
       </span>
-      {step === 1 && (
-        <>
-          {currentText >= 1 && <TypedText strings={["Olá, Boa noite..."]} />}
-          {currentText >= 2 && (
-            <TypedText
-              strings={[
-                "Como não sou muito bom com palavras, achei melhor fazer algo em que eu fosse bom, portanto vou falar por meio de códigos 🙂",
-              ]}
-            />
-          )}
-        </>
-      )}
+      <div className="h-[80vh] md:h-[70vh] pb-4 flex flex-col gap-7 px-2">
+        <TypedText
+          strings={[
+            " ",
+            " ",
+            " ",
+            "Olá, Boa noite...",
+            "Como não sou muito bom com palavras, achei melhor fazer algo em que eu fosse bom, portanto vou falar por meio de códigos e programação 🙂",
+            "",
+          ]}
+        />
+      </div>
     </div>
   );
 };
