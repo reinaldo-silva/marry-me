@@ -16,32 +16,32 @@ const ContentVideo: React.FC<ContentVideoProps> = ({
   currentStep,
 }) => {
   return (
-    <div className="flex w-full h-full relative justify-start overflow-hidden transition-all duration-1000">
+    <div className="flex w-full h-full relative justify-start overflow-hidden transition-all duration-2000">
       <div
-        className={`${
-          currentStep === 3 ? "w-full" : "w-[calc(100%-500px)]"
-        } transition duration-1000 flex justify-center`}
+        className={`w-full ${
+          currentStep === 3 ? "md:w-full" : "md:w-[calc(100%-500px)]"
+        } transition-all duration-1000 flex justify-center z-30`}
       >
         {children}
       </div>
       <div
-        className={`w-[500px] min-w-[${
-          currentStep === 2 ? "500px" : "0"
-        }] h-[100vh] ${
-          currentStep === 2 ? "translate-x-[0]" : "translate-x-[500px]"
-        } transition-all duration-700 z-40 absolute top-0 right-0 opacity-${
-          currentStep === 2 ? "100" : "0"
-        }`}
+        className={`${
+          currentStep === 3 ? "w-[100vw]" : "w-[500px]"
+        } h-[100vh] z-10 absolute top-0 right-0 transition-all duration-1000`}
       >
         <video
-          className="videoTag absolute top-0 left-0 h-[100vh] w-full object-cover z-0"
+          className="videoTag h-full w-full object-cover transition-all duration-1000"
           autoPlay
           loop
           muted
         >
-          <source src="/nos.mp4" type="video/mp4" />
+          <source src="/nos2.mp4" type="video/mp4" />
         </video>
-        <div className="w-full h-full bg-zinc-400 z-20 absolute opacity-60" />
+        <div
+          className={`w-full h-full bg-zinc-700 z-20 absolute top-0 right-0 opacity-80 ${
+            currentStep === 3 ? "md:opacity-80" : "md:opacity-30"
+          }`}
+        />
       </div>
     </div>
   );
@@ -60,13 +60,8 @@ const Home: NextPage = () => {
       {steps === 1 && <Presentation nextStep={nextStep} />}
       {steps > 1 && (
         <ContentVideo currentStep={steps}>
-          {steps === 2 && <AboutUs />}
-          {steps === 3 && (
-            <>
-              <MarryMe />
-              <button onClick={() => setSteps(1)}>next</button>
-            </>
-          )}
+          {steps === 2 && <AboutUs nextStep={nextStep} />}
+          {steps === 3 && <MarryMe />}
         </ContentVideo>
       )}
       <MusicPlayer onStart={steps > 0} setSteps={setSteps} />

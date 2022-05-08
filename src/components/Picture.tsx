@@ -19,8 +19,8 @@ const Picture: React.FC<PictureProps> = ({
       <Image
         src={source}
         alt={alt}
-        height="220px"
-        width="200px"
+        height="200px"
+        width="160px"
         objectFit="cover"
       />
       <div className="h-7 -full" />

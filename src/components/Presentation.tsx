@@ -19,11 +19,11 @@ const Presentation: React.FC<PresentationProps> = ({ nextStep }) => {
   return (
     <div className="w-full h-full flex justify-center items-center">
       {showText ? (
-        <h1 className="font-galada text-9xl text-zinc-300 animate-fadeIn">
+        <h1 className="font-galada text-4xl md:text-9xl text-zinc-300 animate-fadeIn">
           Para Luíza
         </h1>
       ) : (
-        <h1 className="font-galada text-9xl text-zinc-300 animate-fadeIn">
+        <h1 className="font-galada text-4xl md:text-9xl text-zinc-300 animate-fadeIn">
           De Junior
         </h1>
       )}

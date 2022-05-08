@@ -25,6 +25,9 @@ module.exports = {
         wiggleReverse: "wiggleReverse 20s ease-in-out infinite",
         fadeIn: "fadeIn 8s infinite",
       },
+      transitionDuration: {
+        2000: "2000ms",
+      },
     },
   },
   plugins: [],

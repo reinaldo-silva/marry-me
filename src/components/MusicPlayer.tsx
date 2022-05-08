@@ -17,13 +17,15 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ onStart, setSteps }) => {
     if (musicPlayers.current) {
       musicPlayers.current.play();
       musicPlayers.current.loop;
+      setOnPlay(true);
     }
-    setOnPlay(true);
   };
 
   const stop = () => {
-    musicPlayers.current && musicPlayers.current.pause();
-    setOnPlay(false);
+    if (musicPlayers.current) {
+      musicPlayers.current.pause();
+      setOnPlay(false);
+    }
   };
 
   useEffect(() => {
