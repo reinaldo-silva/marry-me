@@ -5,7 +5,7 @@ const MarryMe: React.FC = () => {
   const [currentText, setCurrentText] = useState(0);
   const texts = useMemo(
     () => [
-      "Aceita casar comigo?",
+      "Quer casar comigo?",
       "Marry me?",
       "¿Cásate conmigo?",
       "Sposami?",

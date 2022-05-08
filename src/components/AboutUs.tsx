@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect } from "react";
 import { TypedText } from "./TypedText";
 
 interface AboutUsProps {
@@ -10,7 +10,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ nextStep }) => {
   useEffect(() => {
     setTimeout(() => {
       nextStep();
-    }, 3000);
+    }, 115 * 1000);
   }, [nextStep]);
 
   return (
@@ -37,9 +37,13 @@ const AboutUs: React.FC<AboutUsProps> = ({ nextStep }) => {
             " ",
             " ",
             " ",
-            "Olá, Boa noite...",
-            "Como não sou muito bom com palavras, achei melhor fazer algo em que eu fosse bom, portanto vou falar por meio de códigos e programação 🙂",
-            "",
+            "Olá, boa noite...",
+            "Como não sou muito bom com palavras, achei melhor fazer algo em que eu fosse bom, portanto, vou falar por meio de códigos e programação 🙂",
+            "Desde que você chegou na minha vida tudo começou a fazer sentido",
+            "E sei que Deus não uniu nossos caminho por acaso",
+            "Quero ser seu amigo, namorado e futuro marido",
+            "Passar o resto da minha vida contigo se tornou prioridade em meus planos",
+            `"Ser amado, poder amar. Eu serei seus olhos pela aventura que está por vir" Your Eyes Tell - BTS`,
           ]}
         />
       </div>
